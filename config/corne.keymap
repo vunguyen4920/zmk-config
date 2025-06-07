@@ -105,7 +105,7 @@
             >;
         };
 
-        mouse_layer {
+        /* mouse_layer {
             bindings = <
 //    ┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌────────────────┬────────────────┬──────────────┬────────────────┬────────────────┬────────────────┐
 //    │     │     │     │     │     │     │       │      mbck      │      lclk      │     rclk     │      mfwd      │      mclk      │  &msc SCRL_up  │
@@ -121,7 +121,7 @@
   &trans   &trans   &trans   &trans   &trans   &trans           &trans           &trans           &trans         &trans            &trans           &msc SCRL_DOWN
                              &trans   &trans   &trans           &trans           &trans           &trans
             >;
-        };
+        }; */
 
         fn_adjust_layer {
             bindings = <
