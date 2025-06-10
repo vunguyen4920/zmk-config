@@ -53,91 +53,46 @@
 
         default_layer {
             bindings = <
-//    ┌───────────────────┬───┬───┬──────┬──────────┬─────────────┐       ┌─────────────┬───────────┬──────────┬───┬───┬───────────────────────┐
-//    │ mt lctl(lgui) tab │ Q │ W │  E   │    R     │      T      │       │      Y      │     U     │    I     │ O │ P │          ent          │
-//    ├───────────────────┼───┼───┼──────┼──────────┼─────────────┤       ├─────────────┼───────────┼──────────┼───┼───┼───────────────────────┤
-//    │  lt 3 lctl(tab)   │ A │ S │  D   │    F     │      G      │       │      H      │     J     │    K     │ L │ ; │           '           │
-//    ├───────────────────┼───┼───┼──────┼──────────┼─────────────┤       ├─────────────┼───────────┼──────────┼───┼───┼───────────────────────┤
-//    │   lt 4 lctl(T)    │ Z │ X │  C   │    V     │      B      │       │      N      │     M     │    ,     │ . │ / │ mt lctl(lalt) rctl(W) │
-//    └───────────────────┴───┴───┼──────┼──────────┼─────────────┤       ├─────────────┼───────────┼──────────┼───┴───┴───────────────────────┘
-//                                │ mo 2 │ lt 1 esc │ mt lsft spc │       │ mt rsft spc │ lt 1 bspc │ lt 2 del │
-//                                └──────┴──────────┴─────────────┘       └─────────────┴───────────┴──────────┘
-  &mt LC(LGUI) TAB   &kp Q   &kp W   &kp E   &kp R       &kp T                      &kp Y              &kp U        &kp I       &kp O     &kp P      &kp RET
-  &lt 3 LC(TAB)      &kp A   &kp S   &kp D   &kp F       &kp G                      &kp H              &kp J        &kp K       &kp L     &kp SEMI   &kp SQT
-  &lt 4 LC(T)        &kp Z   &kp X   &kp C   &kp V       &kp B                      &kp N              &kp M        &kp COMMA   &kp DOT   &kp FSLH   &mt LC(LALT) RC(W)
-                                     &mo 2   &lt 1 ESC   &mt LSHIFT SPACE           &mt RSHIFT SPACE   &lt 1 BSPC   &lt 2 DEL
+&mt LC(LGUI) TAB  &kp Q  &kp W  &kp E        &kp R      &kp T               &kp Y             &kp U                  &kp I                     &kp O    &kp P     &kp RET
+&lt 3 LC(TAB)     &kp A  &kp S  &kp D        &kp F      &kp G               &kp H             &kp J                  &kp K                     &kp L    &kp SEMI  &kp SQT
+&lt 4 K_CMENU     &kp Z  &kp X  &kp C        &kp V      &kp B               &kp N             &kp M                  &kp COMMA                 &kp DOT  &kp FSLH  &mt LC(LALT) RG(W)
+                                &lt 2 LC(W)  &lt 1 ESC  &mt LSHIFT SPACE    &mt RSHIFT SPACE  &mt LC(LS(LALT)) BSPC  &mt LC(LA(LS(LGUI))) DEL
             >;
         };
 
         lower_layer {
             bindings = <
-//    ┌───────┬─────┬─────┬───────────┬───────────┬─────┐       ┌──────┬──────┬─────┬──────┬──────┬──────┐
-//    │       │  1  │  2  │     3     │     4     │  5  │       │  6   │  7   │  8  │  9   │  0   │      │
-//    ├───────┼─────┼─────┼───────────┼───────────┼─────┤       ├──────┼──────┼─────┼──────┼──────┼──────┤
-//    │ capsw │     │     │           │           │     │       │ left │ down │ up  │ rght │ home │ pgup │
-//    ├───────┼─────┼─────┼───────────┼───────────┼─────┤       ├──────┼──────┼─────┼──────┼──────┼──────┤
-//    │       │     │     │ lctl(ins) │ lsft(ins) │     │       │      │      │     │      │ end  │ pgdn │
-//    └───────┴─────┴─────┼───────────┼───────────┼─────┤       ├──────┼──────┼─────┼──────┴──────┴──────┘
-//                        │           │           │     │       │      │      │     │
-//                        └───────────┴───────────┴─────┘       └──────┴──────┴─────┘
-  &trans       &kp N1   &kp N2   &kp N3        &kp N4        &kp N5           &kp N6     &kp N7     &kp N8   &kp N9      &kp N0     &trans
-  &caps_word   &trans   &trans   &trans        &trans        &trans           &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &kp HOME   &kp PG_UP
-  &trans       &trans   &trans   &kp LC(INS)   &kp LS(INS)   &trans           &trans     &trans     &trans   &trans      &kp END    &kp PG_DN
-                                 &trans        &trans        &trans           &trans     &trans     &trans
+&trans      &kp N1  &kp N2  &kp N3       &kp N4       &kp N5    &kp N6    &kp N7    &kp N8  &kp N9     &kp N0    &trans
+&caps_word  &trans  &trans  &trans       &trans       &trans    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp HOME  &kp PG_UP
+&trans      &trans  &trans  &kp LC(INS)  &kp LS(INS)  &trans    &trans    &trans    &trans  &trans     &kp END   &kp PG_DN
+                            &trans       &trans       &trans    &trans    &trans    &trans
             >;
         };
 
         raise_layer {
             bindings = <
-//    ┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬───┬───┬─────┐
-//    │     │  !  │  @  │  #  │  $  │  %  │       │  ^  │  &  │  *  │ ( │ ) │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼───┼───┼─────┤
-//    │     │     │     │     │     │     │       │  -  │  =  │  [  │ ] │ \ │  `  │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼───┼───┼─────┤
-//    │     │     │     │     │     │     │       │  _  │  +  │  {  │ } │ | │  ~  │
-//    └─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼───┴───┴─────┘
-//                      │     │     │     │       │     │     │     │
-//                      └─────┴─────┴─────┘       └─────┴─────┴─────┘
-  &trans   &kp EXCL   &kp AT   &kp HASH   &kp DLLR   &kp PRCNT           &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR   &kp RPAR   &trans
-  &trans   &trans     &trans   &trans     &trans     &trans              &kp MINUS   &kp EQUAL   &kp LBKT    &kp RBKT   &kp BSLH   &kp GRAVE
-  &trans   &trans     &trans   &trans     &trans     &trans              &kp UNDER   &kp PLUS    &kp LBRC    &kp RBRC   &kp PIPE   &kp TILDE
-                               &trans     &trans     &trans              &trans      &trans      &trans
+&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &trans
+&trans  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
+&trans  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
+                          &trans    &trans    &trans       &trans     &trans     &trans
             >;
         };
 
         mouse_layer {
             bindings = <
-//    ┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌────────────────┬────────────────┬──────────────┬────────────────┬────────────────┬────────────────┐
-//    │     │     │     │     │     │     │       │      mbck      │      lclk      │     rclk     │      mfwd      │      mclk      │  &msc SCRL_up  │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┤       ├────────────────┼────────────────┼──────────────┼────────────────┼────────────────┼────────────────┤
-//    │     │     │     │     │     │     │       │ &mmv MOVE_left │ &mmv MOVE_down │ &mmv MOVE_up │ &mmv MOVE_rght │ &msc SCRL_left │ &msc SCRL_rght │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┤       ├────────────────┼────────────────┼──────────────┼────────────────┼────────────────┼────────────────┤
-//    │     │     │     │     │     │     │       │                │                │              │                │                │ &msc SCRL_down │
-//    └─────┴─────┴─────┼─────┼─────┼─────┤       ├────────────────┼────────────────┼──────────────┼────────────────┴────────────────┴────────────────┘
-//                      │     │     │     │       │                │                │              │
-//                      └─────┴─────┴─────┘       └────────────────┴────────────────┴──────────────┘
-  &trans   &trans   &trans   &trans   &trans   &trans           &mkp MB4         &mkp MB1         &mkp MB2       &mkp MB5          &mkp MB3         &msc SCRL_UP
-  &trans   &trans   &trans   &trans   &trans   &trans           &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT   &msc SCRL_LEFT   &msc SCRL_RIGHT
-  &trans   &trans   &trans   &trans   &trans   &trans           &trans           &trans           &trans         &trans            &trans           &msc SCRL_DOWN
-                             &trans   &trans   &trans           &trans           &trans           &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &mkp MB4        &mkp MB1        &mkp MB2      &mkp MB5         &mkp MB3        &msc SCRL_UP
+&trans  &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &msc SCRL_LEFT  &msc SCRL_RIGHT
+&trans  &trans  &trans  &trans  &trans  &trans    &trans          &trans          &trans        &trans           &trans          &msc SCRL_DOWN
+                        &trans  &trans  &trans    &trans          &trans          &trans
             >;
         };
 
         fn_adjust_layer {
             bindings = <
-//    ┌─────┬────────────────┬─────┬─────┬────────────┬───────────┐       ┌──────┬────────────┬─────┬─────┬─────┬──────┐
-//    │     │                │     │     │   bt_clr   │ epwr_ tog │       │ mute │     f1     │ f2  │ f3  │ f4  │ pscr │
-//    ├─────┼────────────────┼─────┼─────┼────────────┼───────────┤       ├──────┼────────────┼─────┼─────┼─────┼──────┤
-//    │     │                │     │     │   bt_nxt   │           │       │ volu │     f5     │ f6  │ f7  │ f8  │ bri+ │
-//    ├─────┼────────────────┼─────┼─────┼────────────┼───────────┤       ├──────┼────────────┼─────┼─────┼─────┼──────┤
-//    │     │ &studio_unlock │     │     │   bt_prv   │           │       │ vold │     f9     │ f10 │ f11 │ f12 │ bri- │
-//    └─────┴────────────────┴─────┼─────┼────────────┼───────────┤       ├──────┼────────────┼─────┼─────┴─────┴──────┘
-//                                 │     │ &sys_reset │   boot    │       │ boot │ &sys_reset │     │
-//                                 └─────┴────────────┴───────────┘       └──────┴────────────┴─────┘
-  &trans   &trans           &trans   &trans   &bt BT_CLR   &ext_power EP_TOG           &kp C_MUTE     &kp F1       &kp F2    &kp F3    &kp F4    &kp PRINTSCREEN
-  &trans   &trans           &trans   &trans   &bt BT_NXT   &trans                      &kp C_VOL_UP   &kp F5       &kp F6    &kp F7    &kp F8    &kp C_BRI_UP
-  &trans   &studio_unlock   &trans   &trans   &bt BT_PRV   &trans                      &kp C_VOL_DN   &kp F9       &kp F10   &kp F11   &kp F12   &kp C_BRI_DN
-                                     &trans   &sys_reset   &bootloader                 &bootloader    &sys_reset   &trans
+&trans  &trans          &trans  &trans  &bt BT_CLR  &ext_power EP_TOG    &kp C_MUTE    &kp F1      &kp F2   &kp F3   &kp F4   &kp PRINTSCREEN
+&trans  &trans          &trans  &trans  &bt BT_NXT  &trans               &kp C_VOL_UP  &kp F5      &kp F6   &kp F7   &kp F8   &kp C_BRI_UP
+&trans  &studio_unlock  &trans  &trans  &bt BT_PRV  &trans               &kp C_VOL_DN  &kp F9      &kp F10  &kp F11  &kp F12  &kp C_BRI_DN
+                                &trans  &sys_reset  &bootloader          &bootloader   &sys_reset  &trans
             >;
         };
     };
