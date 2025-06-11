@@ -72,8 +72,8 @@
         raise_layer {
             bindings = <
 &trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &trans
-&trans  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
+&kp F1  &kp F2    &kp F3  &kp F4    &kp F5    &kp F6       &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
+&kp F7  &kp F8    &kp F9  &kp F10   &kp F11   &kp F12      &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
                           &trans    &trans    &trans       &trans     &trans     &trans
             >;
         };
@@ -89,9 +89,9 @@
 
         fn_adjust_layer {
             bindings = <
-&bt BT_CLR  &bt BT_PRV      &bt BT_NXT    &trans             &trans        &trans          &kp C_MUTE    &kp F1      &kp F2   &kp F3   &kp F4   &kp PRINTSCREEN
-&trans      &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOL_UP  &kp F5      &kp F6   &kp F7   &kp F8   &kp C_BRI_UP
-&trans      &studio_unlock  &trans        &trans             &trans        &trans          &kp C_VOL_DN  &kp F9      &kp F10  &kp F11  &kp F12  &kp C_BRI_DN
+&bt BT_CLR  &bt BT_PRV      &bt BT_NXT    &trans             &trans        &trans          &kp C_MUTE    &trans      &trans  &trans  &trans  &kp PRINTSCREEN
+&trans      &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4    &kp C_VOL_UP  &trans      &trans  &trans  &trans  &kp C_BRI_UP
+&trans      &studio_unlock  &trans        &trans             &trans        &trans          &kp C_VOL_DN  &trans      &trans  &trans  &trans  &kp C_BRI_DN
                                           &ext_power EP_TOG  &sys_reset    &bootloader     &bootloader   &sys_reset  &trans
             >;
         };
