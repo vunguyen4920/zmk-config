@@ -36,16 +36,18 @@
 #define PASTE LS(INS)
 
 / {
-    &mmv {
-      acceleration-exponent = <U_MOUSE_MOVE_EXPONENT>;
-      time-to-max-speed-ms = <U_MOUSE_MOVE_TIME>;
-      delay-ms = <U_MOUSE_MOVE_DELAY>;
-    };
+    behaviors {
+        &mmv {
+            acceleration-exponent = <U_MOUSE_MOVE_EXPONENT>;
+            time-to-max-speed-ms = <U_MOUSE_MOVE_TIME>;
+            delay-ms = <U_MOUSE_MOVE_DELAY>;
+        };
 
-    &msc {
-      acceleration-exponent = <U_MOUSE_SCROLL_EXPONENT>;
-      time-to-max-speed-ms = <U_MOUSE_SCROLL_TIME>;
-      delay-ms = <U_MOUSE_SCROLL_DELAY>;
+        &msc {
+            acceleration-exponent = <U_MOUSE_SCROLL_EXPONENT>;
+            time-to-max-speed-ms = <U_MOUSE_SCROLL_TIME>;
+            delay-ms = <U_MOUSE_SCROLL_DELAY>;
+        };
     };
 
     keymap {
