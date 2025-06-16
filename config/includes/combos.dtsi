@@ -1,4 +1,5 @@
-combos {
+/ {
+  combos {
     compatible = "zmk,combos";
 
     fd_ctrl {
@@ -35,5 +36,6 @@ combos {
         output = <&tog MINIMAK>;
         key-positions = <0 11>;
     };
+  };
 };
 
