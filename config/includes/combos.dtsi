@@ -33,7 +33,7 @@
     };
 
     minimak_toggle {
-        output = <&tog MINIMAK>;
+        bindings = <&tog MINIMAK>;
         key-positions = <0 11>;
     };
   };
