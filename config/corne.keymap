@@ -133,7 +133,7 @@
         minimak_layer {
             bindings = <
 //    ┌────┬───┬────────────┬─────────────┬────────────┬────────┐       ┌────────┬────────────┬─────────────┬────────────┬───┬──────────┐
-//    │ ⇥  │ Q │ MT HYPER D │  MT MEH F   │     K      │   Y    │       │   Y    │     U      │  MT MEH I   │ MT HYPER L │ ; │    ⏎     │
+//    │ ⇥  │ Q │ MT HYPER W │  MT MEH D   │     F      │   K    │       │   Y    │     U      │  MT MEH I   │ MT HYPER L │ ; │    ⏎     │
 //    ├────┼───┼────────────┼─────────────┼────────────┼────────┤       ├────────┼────────────┼─────────────┼────────────┼───┼──────────┤
 //    │ ⌃⇥ │ A │     S      │      T      │     R      │   G    │       │   H    │     N      │      E      │     O      │ P │    '     │
 //    ├────┼───┼────────────┼─────────────┼────────────┼────────┤       ├────────┼────────────┼─────────────┼────────────┼───┼──────────┤
@@ -141,7 +141,7 @@
 //    └────┴───┴────────────┼─────────────┼────────────┼────────┤       ├────────┼────────────┼─────────────┼────────────┴───┴──────────┘
 //                          │ LT MOUSE ⌃W │ LT LOWER ⎋ │ MT ⇧ ␣ │       │ MT ⇧ ␣ │ LT RAISE ⌫ │ LT ADJUST ⌦ │
 //                          └─────────────┴────────────┴────────┘       └────────┴────────────┴─────────────┘
-  &kp TAB       &kp Q   &mt HYPER D   &mt MEH F         &kp K           &kp Y                      &kp Y              &kp U            &mt MEH I        &mt HYPER L   &kp SEMI   &kp RET
+  &kp TAB       &kp Q   &mt HYPER W   &mt MEH D         &kp F           &kp K                      &kp Y              &kp U            &mt MEH I        &mt HYPER L   &kp SEMI   &kp RET
   &kp LC(TAB)   &kp A   &kp S         &kp T             &kp R           &kp G                      &kp H              &kp N            &kp E            &kp O         &kp P      &kp SQT
   &kp LG(TAB)   &kp Z   &kp X         &kp C             &kp V           &kp B                      &kp J              &kp M            &kp COMMA        &kp DOT       &kp FSLH   &mt LC(LALT) K_CMENU
                                       &lt MOUSE LC(W)   &lt LOWER ESC   &mt LSHIFT SPACE           &mt RSHIFT SPACE   &lt RAISE BSPC   &lt ADJUST DEL
