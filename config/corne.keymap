@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#include "keys/base.h"
 #include "keys/42.h"
 
 #define BASE  0
@@ -35,63 +36,6 @@
 #define PASTE LS(INS)
 
 / {
-  behaviors {
-
-    // Positional Homerow mods
-    // Homerow mods that prevent accidental activations when rolling keys,
-    // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
-    // qwerty.
-    //
-    // Works by only allowing a mod to activate within tapping-term if
-    // it's on the opposite side of the keyboard or on the same side thumb
-    // keys.
-
-    // Further optimization using urob's timerless homerow mods method:
-    // https://github.com/urob/zmk-config#timeless-homerow-mods
-    hml: homerow_mods_left {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS_LEFT";
-      #binding-cells = <2>;
-      bindings = <&kp>, <&kp>;
-
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      quick-tap-ms = <175>;        // repeat on tap-into-hold
-      // global-quick-tap-ms = <150>;         // requires PR #1387
-      global-quick-tap;
-      hold-trigger-key-positions = <KEYS_R KEYS_T>;
-      hold-trigger-on-release;       // requires PR #1423
-    };
-
-    hmr: homerow_mods_right {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS_RIGHT";
-      #binding-cells = <2>;
-      bindings = <&kp>, <&kp>;
-
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      // global-quick-tap-ms = <150>;         // requires PR #1387
-      quick-tap-ms = <175>;
-      global-quick-tap;
-      hold-trigger-key-positions = <KEYS_L KEYS_T>;
-      hold-trigger-on-release;       // requires PR #1423
-    };
-
-    tm: thumb_mods {
-      compatible = "zmk,behavior-hold-tap";
-      label = "THUMB_MODS";
-      #binding-cells = <2>;
-      bindings = <&kp>, <&kp>;
-
-      flavor = "balanced";
-      tapping-term-ms = <200>;
-      quick-tap-ms = <175>;
-      retro-tap; // use tap when key is used without another key
-    };
-
-  };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -116,16 +60,16 @@
         lower_layer {
             bindings = <
 //    ┌───┬───┬───┬────┬────┬───┐       ┌───┬───┬────┬───┬───┬───┐
-//    │ ` │ ! │ @ │    │ {  │ } │       │ ^ │ 7 │ 8  │ 9 │ + │ * │
+//    │ ` │ ! │ @ │ \  │ {  │ } │       │ ^ │ 7 │ 8  │ 9 │ + │ * │
 //    ├───┼───┼───┼────┼────┼───┤       ├───┼───┼────┼───┼───┼───┤
-//    │ ~ │ & │   │    │ [  │ ] │       │ ( │ 4 │ 5  │ 6 │ 0 │ = │
+//    │ ~ │ & │   │ |  │ [  │ ] │       │ ( │ 4 │ 5  │ 6 │ 0 │ = │
 //    ├───┼───┼───┼────┼────┼───┤       ├───┼───┼────┼───┼───┼───┤
 //    │ _ │   │   │ 📄 │ 📋 │   │       │ ) │ 1 │ 2  │ 3 │ - │ / │
 //    └───┴───┴───┼────┼────┼───┤       ├───┼───┼────┼───┴───┴───┘
 //                │    │    │   │       │ $ │ # │ %% │
 //                └────┴────┴───┘       └───┴───┴────┘
-  &kp GRAVE   &kp EXCL   &kp AT   &trans     &kp LBRC    &kp RBRC           &kp CARET   &kp N7     &kp N8      &kp N9   &kp PLUS    &kp ASTRK
-  &kp TILDE   &kp AMPS   &trans   &trans     &kp LBKT    &kp RBKT           &kp LPAR    &kp N4     &kp N5      &kp N6   &kp N0      &kp EQUAL
+  &kp GRAVE   &kp EXCL   &kp AT   &kp BSLH   &kp LBRC    &kp RBRC           &kp CARET   &kp N7     &kp N8      &kp N9   &kp PLUS    &kp ASTRK
+  &kp TILDE   &kp AMPS   &trans   &kp PIPE   &kp LBKT    &kp RBKT           &kp LPAR    &kp N4     &kp N5      &kp N6   &kp N0      &kp EQUAL
   &kp UNDER   &trans     &trans   &kp COPY   &kp PASTE   &trans             &kp RPAR    &kp N1     &kp N2      &kp N3   &kp MINUS   &kp FSLH
                                   &trans     &trans      &trans             &kp DLLR    &kp HASH   &kp PRCNT
             >;
@@ -188,5 +132,6 @@
 };
 
 
+#include "includes/mods.dtsi"
 #include "includes/combos.dtsi"
 #include "includes/mouse.dtsi"
