@@ -37,7 +37,7 @@
       flavor = "balanced";
       tapping-term-ms = <280>;
       // global-quick-tap-ms = <150>;         // requires PR #1387
-      quick_tap_ms = <175>;
+      quick-tap-ms = <175>;
       global-quick-tap;
       hold-trigger-key-positions = <KEYS_L KEYS_T>;
       hold-trigger-on-release;       // requires PR #1423
@@ -51,7 +51,7 @@
 
       flavor = "balanced";
       tapping-term-ms = <200>;
-      quick_tap_ms = <175>;
+      quick-tap-ms = <175>;
       retro-tap; // use tap when key is used without another key
     };
 
