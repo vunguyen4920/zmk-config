@@ -31,11 +31,6 @@
         bindings = <&kp RGUI>;
         key-positions = <19 8>;
     };
-
-    minimak_toggle {
-        bindings = <&tog MINIMAK>;
-        key-positions = <0 11>;
-    };
   };
 };
 
