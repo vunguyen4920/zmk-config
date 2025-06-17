@@ -28,9 +28,6 @@
 #define U_MOUSE_SCROLL_TIME 5000
 #define U_MOUSE_SCROLL_DELAY 0
 
-#include "includes/mods.dtsi"
-#include "includes/combos.dtsi"
-
 // New Custom Defines
 #define HYPER LC(LA(LS(LGUI)))
 #define MEH LC(LS(LALT))
@@ -133,4 +130,7 @@
     };
 };
 
+
+#include "includes/mods.dtsi"
+#include "includes/combos.dtsi"
 #include "includes/mouse.dtsi"
