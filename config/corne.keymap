@@ -188,6 +188,5 @@
 };
 
 
-#include "includes/mods.dtsi"
 #include "includes/combos.dtsi"
 #include "includes/mouse.dtsi"
