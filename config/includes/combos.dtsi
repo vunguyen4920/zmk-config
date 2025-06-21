@@ -2,34 +2,9 @@
   combos {
     compatible = "zmk,combos";
 
-    fd_ctrl {
-        bindings = <&kp LCTRL>;
-        key-positions = <16 15>;
-    };
-
-    jk_ctrl {
-        bindings = <&kp RCTRL>;
-        key-positions = <19 20>;
-    };
-
-    fs_alt {
-        bindings = <&kp LALT>;
-        key-positions = <16 14>;
-    };
-
-    jl_alt {
-        bindings = <&kp RALT>;
-        key-positions = <19 21>;
-    };
-
-    fe_gui {
-        bindings = <&kp LGUI>;
-        key-positions = <16 3>;
-    };
-
-    ji_gui {
-        bindings = <&kp RGUI>;
-        key-positions = <19 8>;
+    minimak_toggle {
+        bindings = <&tog MINIMAK>;
+        key-positions = <0 11>;
     };
   };
 };
