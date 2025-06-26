@@ -8,12 +8,6 @@
       bindings = <&caps_word>;
       layers = <BASE>;
     };
-
-    minimak_toggle {
-      bindings = <&tog MINIMAK>;
-      key-positions = <LT5 RT5>;
-      layers = <BASE>;
-    };
   };
 };
 
