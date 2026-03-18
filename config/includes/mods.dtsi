@@ -19,7 +19,8 @@
       bindings = <&kp>, <&kp>;
 
       flavor = "balanced";
-      tapping-term-ms = <280>;
+      tapping-term-ms = <200>;
+      require-prior-idle-ms = <125>;
       quick-tap-ms = <175>;        // repeat on tap-into-hold
       // global-quick-tap-ms = <150>;         // requires PR #1387
       global-quick-tap;
@@ -34,9 +35,10 @@
       bindings = <&kp>, <&kp>;
 
       flavor = "balanced";
-      tapping-term-ms = <280>;
+      tapping-term-ms = <200>;
       // global-quick-tap-ms = <150>;         // requires PR #1387
       quick-tap-ms = <175>;
+      require-prior-idle-ms = <125>;
       global-quick-tap;
       hold-trigger-key-positions = <KEYS_L KEYS_T>;
       hold-trigger-on-release;       // requires PR #1423
@@ -51,6 +53,7 @@
       flavor = "balanced";
       tapping-term-ms = <200>;
       quick-tap-ms = <175>;
+      hold-trigger-on-release;       // requires PR #1423
       retro-tap; // use tap when key is used without another key
     };
 

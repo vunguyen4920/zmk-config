@@ -1,0 +1,9 @@
+/ {
+    macros {
+        dot_spc: dot_spc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT &kp SPACE &sk LSHFT>;
+        };
+    };
+};

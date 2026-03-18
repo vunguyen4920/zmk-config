@@ -1,3 +1,13 @@
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
+
+#define U_MOUSE_MOVE_EXPONENT 1
+#define U_MOUSE_MOVE_TIME 600
+#define U_MOUSE_MOVE_DELAY 0
+#define U_MOUSE_SCROLL_EXPONENT 0
+#define U_MOUSE_SCROLL_TIME 500
+#define U_MOUSE_SCROLL_DELAY 0
+
 &mmv {
     acceleration-exponent = <U_MOUSE_MOVE_EXPONENT>;
     time-to-max-speed-ms = <U_MOUSE_MOVE_TIME>;
@@ -8,4 +18,120 @@
     acceleration-exponent = <U_MOUSE_SCROLL_EXPONENT>;
     time-to-max-speed-ms = <U_MOUSE_SCROLL_TIME>;
     delay-ms = <U_MOUSE_SCROLL_DELAY>;
+};
+
+/ {
+    behaviors {
+        mmv_up_p: mmv_up_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_UP>, <&mmv MOVE_Y(-100)>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mmv_up: mmv_up {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv_up_p>, <&mmv MOVE_Y(-3000)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mmv_down_p: mmv_down_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_Y(100)>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mmv_down: mmv_down {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv_down_p>, <&mmv MOVE_Y(3000)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mmv_left_p: mmv_left_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_LEFT>, <&mmv MOVE_X(-100)>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mmv_left: mmv_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv_left_p>, <&mmv MOVE_X(-3000)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        mmv_right_p: mmv_right_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv MOVE_RIGHT>, <&mmv MOVE_X(100)>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        mmv_right: mmv_right {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mmv_right_p>, <&mmv MOVE_X(3000)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        msc_up_p: msc_up_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_Y(-5)>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        msc_up: msc_up {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&msc_up_p>, <&msc SCRL_Y(-100)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        msc_down_p: msc_down_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&msc SCRL_Y(20)>, <&msc SCRL_Y(5)>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        msc_down: msc_down {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&msc_down_p>, <&msc SCRL_Y(100)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        msc_left_p: msc_left_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&msc SCRL_X(-20)>, <&msc SCRL_X(-5)>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        msc_left: msc_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&msc_left_p>, <&msc SCRL_X(-100)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        msc_right_p: msc_right_p {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&msc SCRL_X(20)>, <&msc SCRL_X(5)>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        msc_right: msc_right {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&msc_right_p>, <&msc SCRL_X(100)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
 };
