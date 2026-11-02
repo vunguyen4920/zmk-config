@@ -13,11 +13,14 @@
 #include "keys/base.h"
 #include "keys/42.h"
 
-#define BASE  0
-#define LOWER 1
-#define RAISE 2
-#define MOUSE 3
-#define ADJUST 4
+#define BASE     0
+#define GAME     1
+#define GAME_NUM 2
+#define GAME_FN  3
+#define LOWER    4
+#define RAISE    5
+#define MOUSE    6
+#define ADJUST   7
 
 #define HYPER LC(LA(LS(LGUI)))
 #define MEH LC(LS(LALT))
@@ -29,6 +32,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Base";
             bindings = <
 //    ┌────┬───┬──────────────┬─────────────┬────────────┬───────────┐       ┌───────────┬────────────┬─────────────┬──────────────┬───┬────┐
 //    │ ⇥  │ Q │ &hml HYPER W │ &hml MEH E  │     R      │     T     │       │     Y     │     U      │ &hmr MEH I  │ &hmr HYPER O │ P │ ⟳  │
@@ -37,16 +41,74 @@
 //    ├────┼───┼──────────────┼─────────────┼────────────┼───────────┤       ├───────────┼────────────┼─────────────┼──────────────┼───┼────┤
 //    │ ⌃C │ Z │      X       │      C      │     V      │ &hml ⌃⌥ B │       │ &hmr ⌃⌥ N │     M      │      ,      │      .       │ / │ ⌃W │
 //    └────┴───┴──────────────┼─────────────┼────────────┼───────────┤       ├───────────┼────────────┼─────────────┼──────────────┴───┴────┘
-//                            │ LT MOUSE 🌍 │ LT LOWER ⏎ │  &tm ⇧ ␣  │       │  &tm ⇧ ␣  │ LT RAISE ⌫ │ LT ADJUST ⌦ │
+//                            │ LT MOUSE 🌍 │ LT LOWER ⌘ │  &tm ⇧ ␣  │       │  &tm ⇧ ␣  │ LT RAISE ⌫ │ LT ADJUST ⌦ │
 //                            └─────────────┴────────────┴───────────┘       └───────────┴────────────┴─────────────┘
-  &kp TAB       &kp Q   &hml HYPER W    &hml MEH E          &kp R           &kp T                      &kp Y              &kp U            &hmr MEH I       &hmr HYPER O    &kp P      &key_repeat
-  &kp LC(TAB)   &kp A   &hml LSHIFT S   &hml LGUI D         &hml LCTRL F    &hml LALT G                &hmr LALT H        &hmr LCTRL J     &hmr RGUI K      &hmr LSHIFT L   &kp SEMI   &kp SQT
-  &kp LC(C)     &kp Z   &kp X           &kp C               &kp V           &hml LC(LALT) B            &hmr LC(LALT) N    &kp M            &kp COMMA        &kp DOT         &kp FSLH   &kp LC(W)
-                                        &lt MOUSE K_CMENU   &lt LOWER RET   &tm LSHIFT SPACE           &tm RSHIFT SPACE   &lt RAISE BSPC   &lt ADJUST DEL
+  &kp TAB       &kp Q   &hml HYPER W    &hml MEH E          &kp R            &kp T                      &kp Y              &kp U            &hmr MEH I       &hmr HYPER O    &kp P      &key_repeat
+  &kp LC(TAB)   &kp A   &hml LSHIFT S   &hml LGUI D         &hml LCTRL F     &hml LALT G                &hmr LALT H        &hmr LCTRL J     &hmr RGUI K      &hmr LSHIFT L   &kp SEMI   &kp SQT
+  &kp LC(C)     &kp Z   &kp X           &kp C               &kp V            &hml LC(LALT) B            &hmr LC(LALT) N    &kp M            &kp COMMA        &kp DOT         &kp FSLH   &kp LC(W)
+                                        &lt MOUSE K_CMENU   &lt LOWER LGUI   &tm LSHIFT SPACE           &tm RSHIFT SPACE   &lt RAISE BSPC   &lt ADJUST DEL
+            >;
+        };
+
+        game_layer {
+            display-name = "Game";
+            bindings = <
+//    ┌───┬───┬───┬───┬────────────────────────┬───┐       ┌───┬───┬───────────┬───┬───┬───┐
+//    │ ⇥ │ Q │ W │ E │           R            │ T │       │ Y │ U │     I     │ O │ P │ ⎋ │
+//    ├───┼───┼───┼───┼────────────────────────┼───┤       ├───┼───┼───────────┼───┼───┼───┤
+//    │ ⇧ │ A │ S │ D │           F            │ G │       │ H │ J │     K     │ L │ ; │ ' │
+//    ├───┼───┼───┼───┼────────────────────────┼───┤       ├───┼───┼───────────┼───┼───┼───┤
+//    │ ⌃ │ Z │ X │ C │           V            │ B │       │ N │ M │     ,     │ . │ / │ ` │
+//    └───┴───┴───┼───┼────────────────────────┼───┤       ├───┼───┼───────────┼───┴───┴───┘
+//                │ ⌥ │ &gnum GAME_NUM GAME_FN │ ␣ │       │ ⏎ │ ⌫ │ MO ADJUST │
+//                └───┴────────────────────────┴───┘       └───┴───┴───────────┘
+  &kp TAB      &kp Q   &kp W   &kp E      &kp R                    &kp T               &kp Y     &kp U      &kp I        &kp O     &kp P      &kp ESC
+  &kp LSHIFT   &kp A   &kp S   &kp D      &kp F                    &kp G               &kp H     &kp J      &kp K        &kp L     &kp SEMI   &kp SQT
+  &kp LCTRL    &kp Z   &kp X   &kp C      &kp V                    &kp B               &kp N     &kp M      &kp COMMA    &kp DOT   &kp FSLH   &kp GRAVE
+                               &kp LALT   &gnum GAME_NUM GAME_FN   &kp SPACE           &kp RET   &kp BSPC   &mo ADJUST
+            >;
+        };
+
+        game_num_layer {
+            display-name = "Game Num";
+            bindings = <
+//    ┌───┬───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┬───┐
+//    │ ⎋ │ + │ 7 │ 8 │ 9 │ \ │       │ ⇞ │ ⇱ │ ↑ │ ⇲ │   │   │
+//    ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
+//    │ ⇧ │ - │ 4 │ 5 │ 6 │ 0 │       │ ⇟ │ ← │ ↓ │ → │   │   │
+//    ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
+//    │ ⌃ │ * │ 1 │ 2 │ 3 │ / │       │   │   │   │   │   │   │
+//    └───┴───┴───┼───┼───┼───┤       ├───┼───┼───┼───┴───┴───┘
+//                │   │   │   │       │   │   │   │
+//                └───┴───┴───┘       └───┴───┴───┘
+  &kp ESC      &kp PLUS    &kp N7   &kp N8   &kp N9   &kp BSLH           &kp PG_UP   &kp HOME   &kp UP     &kp END     &trans   &trans
+  &kp LSHIFT   &kp MINUS   &kp N4   &kp N5   &kp N6   &kp N0             &kp PG_DN   &kp LEFT   &kp DOWN   &kp RIGHT   &trans   &trans
+  &kp LCTRL    &kp ASTRK   &kp N1   &kp N2   &kp N3   &kp FSLH           &trans      &trans     &trans     &trans      &trans   &trans
+                                    &trans   &trans   &trans             &trans      &trans     &trans
+            >;
+        };
+
+        game_fn_layer {
+            display-name = "Game FN";
+            bindings = <
+//    ┌───┬─────┬────┬────┬────┬───┐       ┌───┬───┬───┬───┬────┬───┐
+//    │ ⎋ │ F12 │ F7 │ F8 │ F9 │   │       │ ⇞ │ ⇱ │ ↑ │ ⇲ │ 🖨️ │   │
+//    ├───┼─────┼────┼────┼────┼───┤       ├───┼───┼───┼───┼────┼───┤
+//    │   │ F11 │ F4 │ F5 │ F6 │   │       │ ⇟ │ ← │ ↓ │ → │    │   │
+//    ├───┼─────┼────┼────┼────┼───┤       ├───┼───┼───┼───┼────┼───┤
+//    │   │ F10 │ F1 │ F2 │ F3 │   │       │   │   │   │   │    │   │
+//    └───┴─────┴────┼────┼────┼───┤       ├───┼───┼───┼───┴────┴───┘
+//                   │    │    │   │       │   │   │   │
+//                   └────┴────┴───┘       └───┴───┴───┘
+  &kp ESC   &kp F12   &kp F7   &kp F8   &kp F9   &trans           &kp PG_UP   &kp HOME   &kp UP     &kp END     &kp PRINTSCREEN   &trans
+  &trans    &kp F11   &kp F4   &kp F5   &kp F6   &trans           &kp PG_DN   &kp LEFT   &kp DOWN   &kp RIGHT   &trans            &trans
+  &trans    &kp F10   &kp F1   &kp F2   &kp F3   &trans           &trans      &trans     &trans     &trans      &trans            &trans
+                               &trans   &trans   &trans           &trans      &trans     &trans
             >;
         };
 
         lower_layer {
+            display-name = "Lower";
             bindings = <
 //    ┌───┬───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┬───┐
 //    │ ` │ { │ < │ > │ } │ = │       │ + │ 7 │ 8 │ 9 │ \ │   │
@@ -65,54 +127,57 @@
         };
 
         raise_layer {
+            display-name = "Raise";
             bindings = <
 //    ┌───┬─────┬────┬────┬────┬───┐       ┌───┬───┬───┬───┬────┬───┐
-//    │   │ F12 │ F7 │ F8 │ F9 │   │       │ ⇱ │ ⇲ │ ⇞ │ ⇟ │ 🖨️ │   │
+//    │   │ F12 │ F7 │ F8 │ F9 │   │       │ ⇞ │ ⇱ │ ↑ │ ⇲ │ 🖨️ │   │
 //    ├───┼─────┼────┼────┼────┼───┤       ├───┼───┼───┼───┼────┼───┤
-//    │   │ F11 │ F4 │ F5 │ F6 │   │       │ ← │ ↓ │ ↑ │ → │    │   │
+//    │   │ F11 │ F4 │ F5 │ F6 │   │       │ ⇟ │ ← │ ↓ │ → │    │   │
 //    ├───┼─────┼────┼────┼────┼───┤       ├───┼───┼───┼───┼────┼───┤
 //    │   │ F10 │ F1 │ F2 │ F3 │   │       │   │   │   │   │    │   │
 //    └───┴─────┴────┼────┼────┼───┤       ├───┼───┼───┼───┴────┴───┘
 //                   │    │    │   │       │   │   │   │
 //                   └────┴────┴───┘       └───┴───┴───┘
-  &trans   &kp F12   &kp F7   &kp F8   &kp F9   &trans           &kp HOME   &kp END    &kp PG_UP   &kp PG_DN   &kp PRINTSCREEN   &trans
-  &trans   &kp F11   &kp F4   &kp F5   &kp F6   &trans           &kp LEFT   &kp DOWN   &kp UP      &kp RIGHT   &trans            &trans
-  &trans   &kp F10   &kp F1   &kp F2   &kp F3   &trans           &trans     &trans     &trans      &trans      &trans            &trans
-                              &trans   &trans   &trans           &trans     &trans     &trans
+  &trans   &kp F12   &kp F7   &kp F8   &kp F9   &trans           &kp PG_UP   &kp HOME   &kp UP     &kp END     &kp PRINTSCREEN   &trans
+  &trans   &kp F11   &kp F4   &kp F5   &kp F6   &trans           &kp PG_DN   &kp LEFT   &kp DOWN   &kp RIGHT   &trans            &trans
+  &trans   &kp F10   &kp F1   &kp F2   &kp F3   &trans           &trans      &trans     &trans     &trans      &trans            &trans
+                              &trans   &trans   &trans           &trans      &trans     &trans
             >;
         };
 
         mouse_layer {
+            display-name = "Mouse";
             bindings = <
-//    ┌───┬────┬────┬────┬────┬───┐       ┌───────┬───────┬───────┬───────┬───┬───┐
-//    │ ∅ │ ⌘Q │ ⌘W │ ∅  │ ⌘R │ ∅ │       │   ∅   │ 🖱️B4  │ 🖱️F5  │   ∅   │ ∅ │ ∅ │
-//    ├───┼────┼────┼────┼────┼───┤       ├───────┼───────┼───────┼───────┼───┼───┤
-//    │ ∅ │ ∅  │ ∅  │ ∅  │ ∅  │ ∅ │       │  🖱️←  │  🖱️↓  │  🖱️↑  │  🖱️→  │ ∅ │ ∅ │
-//    ├───┼────┼────┼────┼────┼───┤       ├───────┼───────┼───────┼───────┼───┼───┤
-//    │ ∅ │ ∅  │ ∅  │ 📄 │ 📋 │ ∅ │       │ 🖱️📜← │ 🖱️📜↓ │ 🖱️📜↑ │ 🖱️📜→ │ ∅ │ ∅ │
-//    └───┴────┴────┼────┼────┼───┤       ├───────┼───────┼───────┼───────┴───┴───┘
-//                  │ ∅  │ ∅  │ ∅ │       │  🖱️L  │  🖱️M  │  🖱️R  │
-//                  └────┴────┴───┘       └───────┴───────┴───────┘
-  &none   &kp LG(Q)   &kp LG(W)   &none      &kp LG(R)   &none           &none            &mkp MB4         &mkp MB5       &none             &none   &none
-  &none   &none       &none       &none      &none       &none           &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT   &none   &none
-  &none   &none       &none       &kp COPY   &kp PASTE   &none           &msc SCRL_LEFT   &msc SCRL_DOWN   &msc SCRL_UP   &msc SCRL_RIGHT   &none   &none
+//    ┌───┬────┬────┬────┬────┬───┐       ┌───────┬───────┬─────┬───────┬───┬───┐
+//    │ ∅ │ ⌘Q │ ⌘W │ ∅  │ ⌘R │ ∅ │       │ 🖱️📜↑ │ 🖱️B4  │ 🖱️↑ │ 🖱️F5  │ ∅ │ ∅ │
+//    ├───┼────┼────┼────┼────┼───┤       ├───────┼───────┼─────┼───────┼───┼───┤
+//    │ ∅ │ ∅  │ ∅  │ ∅  │ ∅  │ ∅ │       │ 🖱️📜↓ │  🖱️←  │ 🖱️↓ │  🖱️→  │ ∅ │ ∅ │
+//    ├───┼────┼────┼────┼────┼───┤       ├───────┼───────┼─────┼───────┼───┼───┤
+//    │ ∅ │ ∅  │ ∅  │ 📄 │ 📋 │ ∅ │       │   ∅   │ 🖱️📜← │  ∅  │ 🖱️📜→ │ ∅ │ ∅ │
+//    └───┴────┴────┼────┼────┼───┤       ├───────┼───────┼─────┼───────┴───┴───┘
+//                  │ ∅  │ ∅  │ ∅ │       │  🖱️L  │  🖱️M  │ 🖱️R │
+//                  └────┴────┴───┘       └───────┴───────┴─────┘
+  &none   &kp LG(Q)   &kp LG(W)   &none      &kp LG(R)   &none           &msc SCRL_UP     &mkp MB4         &mmv MOVE_UP     &mkp MB5          &none   &none
+  &none   &none       &none       &none      &none       &none           &msc SCRL_DOWN   &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_RIGHT   &none   &none
+  &none   &none       &none       &kp COPY   &kp PASTE   &none           &none            &msc SCRL_LEFT   &none            &msc SCRL_RIGHT   &none   &none
                                   &none      &none       &none           &mkp MB1         &mkp MB3         &mkp MB2
             >;
         };
 
         adjust_layer {
+            display-name = "Adjust";
             bindings = <
-//    ┌──────┬────┬────┬────┬────┬────┐       ┌──────┬──────┬──────┬──────┬──────┬───┐
-//    │ 🛜❌ │ 🔇 │    │    │    │ 🔌 │       │ 🛜 0 │ 🛜 1 │ 🛜 2 │ 🛜 3 │ 🛜 4 │   │
-//    ├──────┼────┼────┼────┼────┼────┤       ├──────┼──────┼──────┼──────┼──────┼───┤
-//    │ 🛜🔼 │ 🔊 │ 🔆 │    │    │    │       │      │  ⏮   │  ⏯   │  ⏭   │      │   │
-//    ├──────┼────┼────┼────┼────┼────┤       ├──────┼──────┼──────┼──────┼──────┼───┤
-//    │ 🛜🔽 │ 🔉 │ 🔅 │    │ 🔄 │ 💾 │       │  💾  │  🔄  │      │      │      │   │
-//    └──────┴────┴────┼────┼────┼────┤       ├──────┼──────┼──────┼──────┴──────┴───┘
-//                     │ 🔓 │    │    │       │      │      │      │
-//                     └────┴────┴────┘       └──────┴──────┴──────┘
+//    ┌──────┬────┬────┬────┬────┬────────┐       ┌──────┬──────┬──────┬──────┬──────┬───┐
+//    │ 🛜❌ │ 🔇 │    │    │    │   🔌   │       │ 🛜 0 │ 🛜 1 │ 🛜 2 │ 🛜 3 │ 🛜 4 │   │
+//    ├──────┼────┼────┼────┼────┼────────┤       ├──────┼──────┼──────┼──────┼──────┼───┤
+//    │ 🛜🔼 │ 🔊 │ 🔆 │    │    │ TOG 🎮 │       │      │  ⏮   │  ⏯   │  ⏭   │      │   │
+//    ├──────┼────┼────┼────┼────┼────────┤       ├──────┼──────┼──────┼──────┼──────┼───┤
+//    │ 🛜🔽 │ 🔉 │ 🔅 │    │ 🔄 │   💾   │       │  💾  │  🔄  │      │      │      │   │
+//    └──────┴────┴────┼────┼────┼────────┤       ├──────┼──────┼──────┼──────┴──────┴───┘
+//                     │ 🔓 │    │        │       │      │      │      │
+//                     └────┴────┴────────┘       └──────┴──────┴──────┘
   &bt BT_CLR   &kp C_MUTE     &trans         &trans           &trans       &ext_power EP_TOG           &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4   &trans
-  &bt BT_NXT   &kp C_VOL_UP   &kp C_BRI_UP   &trans           &trans       &trans                      &trans         &kp C_PREV     &kp C_PP       &kp C_NEXT     &trans         &trans
+  &bt BT_NXT   &kp C_VOL_UP   &kp C_BRI_UP   &trans           &trans       &tog GAME                   &trans         &kp C_PREV     &kp C_PP       &kp C_NEXT     &trans         &trans
   &bt BT_PRV   &kp C_VOL_DN   &kp C_BRI_DN   &trans           &sys_reset   &bootloader                 &bootloader    &sys_reset     &trans         &trans         &trans         &trans
                                              &studio_unlock   &trans       &trans                      &trans         &trans         &trans
             >;

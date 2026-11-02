@@ -14,47 +14,52 @@
     // https://github.com/urob/zmk-config#timeless-homerow-mods
     hml: homerow_mods_left {
       compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS_LEFT";
       #binding-cells = <2>;
       bindings = <&kp>, <&kp>;
 
       flavor = "balanced";
       tapping-term-ms = <200>;
-      require-prior-idle-ms = <125>;
       quick-tap-ms = <175>;        // repeat on tap-into-hold
-      // global-quick-tap-ms = <150>;         // requires PR #1387
-      global-quick-tap;
+      require-prior-idle-ms = <175>; // was implied by deprecated `global-quick-tap`
       hold-trigger-key-positions = <KEYS_R KEYS_T>;
-      hold-trigger-on-release;       // requires PR #1423
+      hold-trigger-on-release;
     };
 
     hmr: homerow_mods_right {
       compatible = "zmk,behavior-hold-tap";
-      label = "HOMEROW_MODS_RIGHT";
       #binding-cells = <2>;
       bindings = <&kp>, <&kp>;
 
       flavor = "balanced";
       tapping-term-ms = <200>;
-      // global-quick-tap-ms = <150>;         // requires PR #1387
       quick-tap-ms = <175>;
-      require-prior-idle-ms = <125>;
-      global-quick-tap;
+      require-prior-idle-ms = <175>; // was implied by deprecated `global-quick-tap`
       hold-trigger-key-positions = <KEYS_L KEYS_T>;
-      hold-trigger-on-release;       // requires PR #1423
+      hold-trigger-on-release;
     };
 
     tm: thumb_mods {
       compatible = "zmk,behavior-hold-tap";
-      label = "THUMB_MODS";
       #binding-cells = <2>;
       bindings = <&kp>, <&kp>;
 
       flavor = "balanced";
       tapping-term-ms = <200>;
       quick-tap-ms = <175>;
-      hold-trigger-on-release;       // requires PR #1423
+      hold-trigger-on-release;
       retro-tap; // use tap when key is used without another key
+    };
+
+    // Game layer middle thumb: hold = momentary layer, tap = one-shot layer.
+    // hold-preferred: pressing any key while held picks "hold" instantly,
+    // so numbers have no added latency.
+    gnum: game_num_fn {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      bindings = <&mo>, <&sl>;
+
+      flavor = "hold-preferred";
+      tapping-term-ms = <200>;
     };
 
   };
